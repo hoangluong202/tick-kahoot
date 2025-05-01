@@ -3,10 +3,29 @@ import { InfinityPaginationResponseDto } from './dto/infinity-pagination-respons
 
 export const infinityPagination = <T>(
   data: T[],
+  totalItems: number,
   options: IPaginationOptions,
+  prefix: string = '',
 ): InfinityPaginationResponseDto<T> => {
   return {
-    data,
-    hasNextPage: data.length === options.limit,
+    data: data,
+    meta: {
+      currentPage: options.page,
+      perPage: options.limit,
+      totalItems: totalItems,
+      totalPages: Math.ceil(totalItems / options.limit),
+    },
+    links: {
+      first: `${prefix}?page=1&limit=${options.limit}`,
+      last: `${prefix}?page=${Math.ceil(totalItems/ options.limit)}&limit=${options.limit}`,
+      pre:
+        options.page > 1
+          ? `${prefix}?page=${options.page - 1}&limit=${options.limit}`
+          : null,
+      next:
+        options.page < Math.ceil(totalItems/ options.limit)
+          ? `${prefix}?page=${options.page + 1}&limit=${options.limit}`
+          : null,
+    },
   };
 };

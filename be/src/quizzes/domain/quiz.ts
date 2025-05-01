@@ -1,4 +1,4 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class Quiz {
   @ApiProperty({
@@ -8,23 +8,22 @@ export class Quiz {
 
   @ApiProperty({
     type: String,
-    example: "Quiz Title",
+    example: 'Quiz Title',
   })
   title: string;
 
   @ApiProperty({
     type: String,
-    example: "Quiz Description",
+    example: 'Quiz Description',
   })
   description?: string;
 
   @ApiProperty({
     type: String,
-    example: "creatorId",
+    example: 'creatorId',
   })
   creatorId: string;
 
-  
   questions: Question[];
 
   @ApiProperty({
@@ -35,20 +34,18 @@ export class Quiz {
 }
 
 export class Question {
-  @ApiProperty({type: String,
-    example: "ndjaeadfj",
-  })
+  @ApiProperty({ type: String, example: 'ndjaeadfj' })
   id: string;
-  
+
   @ApiProperty({
     type: String,
-    example: "What is the capital of France?",
+    example: 'What is the capital of France?',
   })
   question: string;
 
   @ApiProperty({
     type: [String],
-    example: ["Paris", "London", "Berlin", "Madrid"],
+    example: ['Paris', 'London', 'Berlin', 'Madrid'],
   })
   options: string[];
 

@@ -1,9 +1,9 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { HydratedDocument, Types } from "mongoose";
-import { EntityDocumentHelper } from "src/utils/document-entity-helper";
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument, Types } from 'mongoose';
+import { EntityDocumentHelper } from 'src/utils/document-entity-helper';
 
-@Schema({timestamps: true})
-export class QuestionSchemaClass extends EntityDocumentHelper{
+@Schema({ timestamps: true })
+export class QuestionSchemaClass extends EntityDocumentHelper {
   @Prop({ required: true })
   question: string;
 

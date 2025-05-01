@@ -1,11 +1,21 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { Type } from "class-transformer";
-import { IsArray, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Max, Min, ValidateNested } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
+import {
+  IsArray,
+  IsInt,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+  Max,
+  Min,
+  ValidateNested,
+} from 'class-validator';
 
 class QuestionDto {
   @ApiProperty({
     type: String,
-    example: "What is the capital of France?",
+    example: 'What is the capital of France?',
   })
   @IsString()
   @IsNotEmpty()
@@ -13,7 +23,7 @@ class QuestionDto {
 
   @ApiProperty({
     type: [String],
-    example: ["Paris", "London", "Berlin", "Madrid"],
+    example: ['Paris', 'London', 'Berlin', 'Madrid'],
   })
   @IsArray()
   @IsString({ each: true })
@@ -50,7 +60,7 @@ class QuestionDto {
 export class CreateQuizDto {
   @ApiProperty({
     type: String,
-    example: "Around the World",
+    example: 'Around the World',
   })
   @IsString()
   @IsNotEmpty()
@@ -58,7 +68,7 @@ export class CreateQuizDto {
 
   @ApiProperty({
     type: String,
-    example: "A quiz about world capitals",
+    example: 'A quiz about world capitals',
   })
   @IsString()
   @IsOptional()
@@ -66,7 +76,7 @@ export class CreateQuizDto {
 
   @ApiProperty({
     type: String,
-    example: "creatorId",
+    example: 'creatorId',
   })
   @IsString()
   @IsNotEmpty()
@@ -80,6 +90,7 @@ export class CreateQuizDto {
   @Type(() => QuestionDto)
   questions: QuestionDto[];
 
+  @IsOptional()
   @IsNumber()
   playCount: number;
 }

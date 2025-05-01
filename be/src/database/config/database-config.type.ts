@@ -13,4 +13,4 @@ export type DatabaseConfig = {
   ca?: string;
   key?: string;
   cert?: string;
-}
+};

@@ -15,7 +15,7 @@ import { QuizzesModule } from './quizzes/quizzes.module';
       envFilePath: ['.env'],
     }),
     MongooseModule.forRootAsync({
-      useClass: MongooseConfigService
+      useClass: MongooseConfigService,
     }),
     UsersModule,
     QuizzesModule,
